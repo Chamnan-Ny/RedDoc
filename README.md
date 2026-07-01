@@ -8,17 +8,17 @@ Writing a penetration testing report is one of the most important tasks after a 
 
 + Objectives
 
-Create and manage penetration testing projects.
+    - Create and manage penetration testing projects.
 
-Record vulnerabilities with detailed descriptions.
+    - Record vulnerabilities with detailed descriptions.
 
-Classify findings by severity.
+    - Classify findings by severity.
 
-Store screenshots and proof-of-concept evidence.
+    - Store screenshots and proof-of-concept evidence.
 
-Generate professional penetration testing reports.
+    - Generate professional penetration testing reports.
 
-Demonstrate Flutter application architecture and local data management.
+    - Demonstrate Flutter application architecture and local data management.
 
 + Features
 
@@ -58,7 +58,7 @@ Evidence Management
 
 Report Generation
 
-    - Generate a professional PDF report containing:
+    Generate a professional PDF report containing:
 
         - Executive Summary
 
@@ -74,21 +74,22 @@ Report Generation
 
 + Technology Stack
 
-Framework: Flutter
+    Framework: Flutter
 
-- Language: Dart
+        - Language: Dart
 
-- Local Database: Hive
+        - Local Database: Hive
 
-- State Management: (To be determined)
+        - State Management: (To be determined)
 
-- PDF Generation: pdf
+        - PDF Generation: pdf
 
-- Image Handling: image_picker
+        - Image Handling: image_picker
 
 Project Structure
 
 lib/
+
 ├── models/
 
 ├── data/
@@ -118,7 +119,7 @@ Future Improvements
     - Cloud synchronization.
 
     - Dashboard analytics.
-    
+
     - Dark mode.
 
 + Disclaimer
