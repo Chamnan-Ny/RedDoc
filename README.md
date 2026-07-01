@@ -78,7 +78,7 @@ Report Generation
 
         - Language: Dart
 
-        - Local Database: Hive
+        - Local Database: SQLite
 
         - State Management: (To be determined)
 
