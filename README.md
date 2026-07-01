@@ -126,6 +126,6 @@ Future Improvements
 
 This application is intended for educational purposes and authorized security assessments only. It does not include offensive security capabilities or automated vulnerability scanning. Users are responsible for ensuring that any penetration testing activities are performed with proper authorization.
 
-👨‍💻 Author
++ Author
 
 Developed as a Flutter portfolio project to explore the intersection of mobile application development and cybersecurity reporting.
