@@ -129,3 +129,33 @@ This application is intended for educational purposes and authorized security as
 + Author
 
 Developed as a Flutter portfolio project to explore the intersection of mobile application development and cybersecurity reporting.
+
+
+                                        Dashboard
+                                            │
+                                            ▼
+                                        Create Project
+                                            │
+                                            ▼
+                                        Project Details
+                                            │
+                                            ├───────────────┐
+                                            ▼               │
+                                        Add Finding           │
+                                            │               │
+                                            ▼               │
+                                        Add Evidence          │
+                                            │               │
+                                            └──────► Save ◄─┘
+                                                    │
+                                                    ▼
+                                        Project Details
+                                                    │
+                                                    ▼
+                                        Generate Report
+                                                    │
+                                                    ▼
+                                        Preview PDF
+                                                    │
+                                                    ▼
+                                        Export Report
