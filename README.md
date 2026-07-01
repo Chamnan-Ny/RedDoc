@@ -82,7 +82,7 @@ Report Generation
 
         - State Management: (To be determined)
 
-        - PDF Generation: pdf
+        - PDF Generation: pdf , printing
 
         - Image Handling: image_picker
 
