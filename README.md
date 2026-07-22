@@ -1,164 +1,359 @@
-RedDoc - Penetration Testing Report App
+RedDoc 
+A Penetration Testing Report Management Application
 
-A Flutter application designed to help penetration testers organize security assessment projects, document vulnerabilities, manage evidence, and generate professional penetration testing reports.
+RedDoc is a Flutter-based penetration testing report management application designed to help penetration testers organize, document, and manage vulnerability findings during security assessments. The application provides a centralized platform for creating penetration testing projects, recording vulnerabilities, attaching evidence screenshots, and tracking reports in the cloud.
 
-+ Overview
+RedDoc uses Firebase Authentication for secure user registration and login, Cloud Firestore for cloud-based data storage, and Firebase Storage for storing vulnerability evidence. The application follows a layered architecture using models, repositories, services, and UI components to demonstrate clean software engineering practices.
 
-Writing a penetration testing report is one of the most important tasks after a security assessment. This application simplifies that process by providing a structured workspace where testers can manage projects, record findings, attach supporting evidence, and generate clear, organized reports.
+This project is developed as an educational cybersecurity mobile application for the Mobile Development in Cybersecurity course. It demonstrates Flutter development, Firebase integration, CRUD operations, image upload, repository architecture, and secure management of penetration testing reports.
 
-+ Objectives
+Note: The current version focuses on the Report Designer module. The Manager review workflow is planned as a future enhancement.
 
-    - Create and manage penetration testing projects.
++ Project Direction
 
-    - Record vulnerabilities with detailed descriptions.
+Cybersecurity Application — Penetration Testing Report Management
 
-    - Classify findings by severity.
+RedDoc assists penetration testers in documenting and organizing security assessment results throughout the penetration testing process. Rather than generating traditional PDF reports, the application provides a cloud-based workspace where findings and supporting evidence can be managed digitally.
 
-    - Store screenshots and proof-of-concept evidence.
++ Key Features
+- Firebase Authentication
+User registration
+Email & Password login
+Secure logout
+- Project Management
 
-    - Generate professional penetration testing reports.
+Users can:
 
-    - Demonstrate Flutter application architecture and local data management.
+Create penetration testing projects
+View project information
+Edit project details
+Delete projects
+Search projects
+- Vulnerability Findings Management
 
-+ Features
+Users can:
 
-Project Management
+Add vulnerability findings
+Edit findings
+Delete findings
+Assign severity levels
+Write vulnerability descriptions
+Add remediation recommendations
+- Evidence Upload
 
-    - Create, edit, and delete penetration testing projects.
+Users can upload supporting evidence such as:
 
-    - Store target information, scope, tester name, assessment date, and project status.
+Burp Suite screenshots
+Browser screenshots
+Request/Response captures
+Proof-of-concept images
 
-    - View all projects from a centralized dashboard.
+Evidence is stored securely in Firebase Storage.
 
-Vulnerability Management
+☁️ Cloud Database
 
-    - Add, edit, and remove security findings.
+Project information and vulnerability findings are synchronized using Cloud Firestore.
 
-    - Record vulnerability descriptions and remediation recommendations.
+- Search, Filter & Sort
 
-    Assign severity levels:
+Users can:
 
-        - 🟢 Low
+Search projects
+Search findings
+Filter findings by severity
+Sort findings alphabetically
+Sort findings by creation date
+- Layered Architecture
 
-        - 🟡 Medium
+The project follows the course architecture using:
 
-        - 🟠 High
+models/
+data/
+repositories/
+services/
+ui/screens/
+ui/widgets/
+- Data Managed in RedDoc
 
-        - 🔴 Critical
+The application manages penetration testing information including:
 
-    - Track finding status (Open, Fixed, Accepted Risk).
+Projects
+Vulnerability findings
+Severity levels
+Recommendations
+Evidence screenshots
+Project metadata
+🛠️ Main Technologies
+Technology	Purpose
+Flutter	Mobile application framework
+Dart	Programming language
+Firebase Authentication	User authentication
+Cloud Firestore	Cloud database
+Firebase Storage	Image storage
+image_picker	Upload evidence screenshots
+Stateful Widgets	State management
+Repository Pattern	Data access layer
+- Current User Role
+Report Designer
 
-Evidence Management
+The current version of RedDoc is designed for penetration testers who create and manage security assessment reports.
 
-    - Attach screenshots.
+Responsibilities:
 
-    - Save proof-of-concept notes.
+Create penetration testing projects
+Manage project information
+Add vulnerability findings
+Edit vulnerability findings
+Delete vulnerability findings
+Upload evidence screenshots
+Search projects
+Search findings
+Filter findings
+Sort findings
+📱 App Screens
+1. Splash Screen
 
-    - Organize evidence for each vulnerability.
+Checks authentication status and redirects users to the appropriate screen.
 
-Report Generation
+2. Login Screen
 
-    Generate a professional PDF report containing:
+Allows existing users to sign in using Firebase Authentication.
 
-        - Executive Summary
+3. Register Screen
 
-        - Project Information
+Allows new users to create an account.
 
-        - Vulnerability Findings
+4. Dashboard Screen
 
-        - Severity Assessment
+Displays project statistics and recently created projects.
 
-        - Remediation Recommendations
+5. Create Project Screen
 
-        - Supporting Evidence
+Allows users to create a new penetration testing project.
 
-+ Technology Stack
+6. Project Detail Screen
 
-    Framework: Flutter
+Displays project information and a list of vulnerability findings.
 
-        - Language: Dart
+7. Finding Form Screen
 
-        - Local Database: SQLite
+Allows users to add or edit vulnerability findings.
 
-        - State Management: (To be determined)
+8. Finding Detail Screen
 
-        - PDF Generation: pdf , printing
+Displays complete vulnerability information including:
 
-        - Image Handling: image_picker
+Severity
+Description
+Recommendation
+Evidence screenshots
+9. Profile Screen
 
-Project Structure
+Allows users to view profile information and log out.
 
+Basic User Flow
+Open App
+    ↓
+Splash Screen
+    ↓
+Login / Register
+    ↓
+Firebase Authentication
+    ↓
+Dashboard
+    ↓
+Create Project
+    ↓
+Project Detail
+    ↓
+Add Finding
+    ↓
+Upload Evidence
+    ↓
+Save Finding
+    ↓
+View / Search / Filter / Sort Findings
+📂 Project Structure
 lib/
-
+│
 ├── models/
-
+│   ├── user_model.dart
+│   ├── project_model.dart
+│   ├── finding_model.dart
+│   └── evidence_model.dart
+│
 ├── data/
-
-├── screens/
-
-├── widgets/
-
-├── services/
-
+│   ├── repositories/
+│   │   ├── auth_repository.dart
+│   │   ├── project_repository.dart
+│   │   ├── finding_repository.dart
+│   │   └── storage_repository.dart
+│   │
+│   └── services/
+│       ├── firebase_auth_service.dart
+│       ├── firestore_service.dart
+│       ├── storage_service.dart
+│       └── image_picker_service.dart
+│
+├── ui/
+│   ├── screens/
+│   │   ├── auth/
+│   │   ├── dashboard/
+│   │   ├── project/
+│   │   ├── finding/
+│   │   └── profile/
+│   │
+│   ├── widgets/
+│   └── theme/
+│       └── app_theme.dart
+│
+├── firebase_options.dart
 └── main.dart
++ Model Classes
+UserModel
 
-+ Purpose
+Represents the authenticated user.
 
-This project was developed as a university portfolio project to practice Flutter development while applying concepts commonly used in cybersecurity reporting. The focus is on improving documentation workflows rather than performing offensive security operations.
+uid
+name
+email
+ProjectModel
 
-Future Improvements
+Represents a penetration testing project.
 
-    - CVE reference integration.
+projectId
+title
+target
+scope
+createdAt
+FindingModel
 
-    - Report templates.
+Represents a vulnerability finding.
 
-    - Search and filtering.
+findingId
+projectId
+title
+severity
+description
+recommendation
+createdAt
+EvidenceModel
 
-    - Team collaboration.
+Represents uploaded vulnerability evidence.
 
-    - Cloud synchronization.
+evidenceId
+findingId
+imageUrl
+note
++ Cloud Firestore Collections
+users
 
-    - Dashboard analytics.
+Stores authenticated user information.
 
-    - Dark mode.
+projects
 
-+ Disclaimer
+Stores penetration testing projects.
 
-This application is intended for educational purposes and authorized security assessments only. It does not include offensive security capabilities or automated vulnerability scanning. Users are responsible for ensuring that any penetration testing activities are performed with proper authorization.
+findings
 
-+ Author
+Stores vulnerability findings.
 
-Developed as a Flutter portfolio project to explore the intersection of mobile application development and cybersecurity reporting.
+evidence
 
+Stores uploaded evidence metadata.
 
-+ Project Workflow :- 
++ Severity Levels
+Critical
+High
+Medium
+Low
+Informational
++ Security Notes
 
+RedDoc is designed to securely manage penetration testing reports.
 
-                                        Dashboard
-                                            │
-                                            ▼
-                                        Create Project
-                                            │
-                                            ▼
-                                        Project Details
-                                            │
-                                            ├───────────────┐
-                                            ▼               │
-                                        Add Finding           │
-                                            │               │
-                                            ▼               │
-                                        Add Evidence          │
-                                            │               │
-                                            └──────► Save ◄─┘
-                                                    │
-                                                    ▼
-                                        Project Details
-                                                    │
-                                                    ▼
-                                        Generate Report
-                                                    │
-                                                    ▼
-                                        Preview PDF
-                                                    │
-                                                    ▼
+Security principles include:
+
+Firebase Authentication securely manages user accounts.
+Cloud Firestore stores project and finding data.
+Firebase Storage securely stores uploaded evidence.
+Authentication is required before accessing project data.
+🚀 Project Setup
+Prerequisites
+Flutter SDK
+Dart SDK
+Android Studio or Visual Studio Code
+Firebase Project
+FlutterFire CLI
+Installation
+1. Clone the repository
+git clone https://github.com/yourusername/reddoc.git
+cd reddoc
+2. Install dependencies
+flutter pub get
+3. Configure Firebase
+
+Enable the following Firebase services:
+
+Authentication (Email & Password)
+Cloud Firestore
+Firebase Storage
+
+Run:
+
+flutterfire configure
+4. Verify Flutter setup
+flutter doctor
+5. Run the application
+flutter run
+📦 Required Packages
+Main Packages
+firebase_core
+firebase_auth
+cloud_firestore
+firebase_storage
+image_picker
+intl
+uuid
+Development Packages
+flutter_lints
+🚀 Future Improvements
+
+The following features are planned for future versions:
+
++ Manager Module
+Manager authentication
+Manager dashboard
+Report review workflow
+Approval and rejection system
+Revision requests
+Review comments
+Report status tracking
+Role-Based Access Control (RBAC)
++ Additional Features
+PDF report generation
+CVSS score calculator
+Push notifications
+Email notifications
+Activity history
+Team collaboration
+Report templates
+Dark mode
+Multi-language support
+👥 Contributors
+
+Prepared By: Ny Chamnan , Song Saknora
+
+Course: Mobile Development in Cybersecurity
+
+Lecturer: Mr. Ronan Ogor
+
+Department: Telecom and Networking, Cyber Security
+
+Institution: Cambodia Academy of Digital Technology (CADT)
+
+📄 License
+
+This project is developed for educational purposes as part of the Mobile Development in Cybersecurity course at CADT.
+
                                         Export Report
